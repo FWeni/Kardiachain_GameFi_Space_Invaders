@@ -527,7 +527,7 @@ addEventListener('keyup', ({ key }) => {
     }
 })
 
-function getScore {
+function getScore() {
     
     game.over
     return score

@@ -4,6 +4,8 @@ A classic or retro game developed by Tomohiro Nishikado .
 
 # How to play
 
+first open index.js with your browser
+
 As a player you need to shoot against an army of invaders and kill them before they kill you. 
 
 When you shoot and kill an invader, your score increases by a 100 points.
