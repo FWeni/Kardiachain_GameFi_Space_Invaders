@@ -5,19 +5,19 @@ contract RecordHighScore {
   string username;
   uint record;
 
-  function setPlayer(string memory _username) public {
+  function setCurrentPlayer(string memory _username) public {
     username = _username;
   }
 
-  function getPlayer() public view returns (string memory) {
+  function getCurrentPlayer() public view returns (string memory) {
       return username;
   }
 
-  function setScore(uint _record) public {
+  function setNewRecord(uint _record) public {
     record = _record;
   }
 
-  function getScore() public view returns (uint) {
+  function getNewRecord() public view returns (uint) {
       return record;
   }
 }
