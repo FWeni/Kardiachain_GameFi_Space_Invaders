@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Invaders</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script> -->
+    <!-- <script src="../bridge.js"> -->
+    </script>
+
+</head>
+
+<body>
+    <section>
+        <div id="modal" style="display:none"></div>
+        <p class="score">
+            <span>Score:</span> <span id="scoreElement">0</span>
+        </p>
+        <canvas id="game-layer"></canvas>
+    </section>
+    <script type="module" src="../bridge.js">
+    </script>
+    <script type="module" src="game.js"></script>
+</body>
+
+</html>
