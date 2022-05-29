@@ -1,6 +1,6 @@
 require("@nomiclabs/hardhat-waffle");
 
-const KAI_PRIVATE_KEY = "28e22cf4f3bf66fa4960b5f8bced535b5f6c5b9c6f60d36ef82b567ae017c9137";
+const KAI_PRIVATE_KEY = "8e22cf4f3bf66fa4960b5f8bced535b5f6c5b9c6f60d36ef82b567ae017c9137";
 
 module.exports = {
     defaultNetwork: "kardiachain",
