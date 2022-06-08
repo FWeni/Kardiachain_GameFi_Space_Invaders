@@ -7,10 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Space Invaders</title>
     <link rel="stylesheet" href="style.css">
-    <!-- <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script> -->
+    <!-- <script type="module" src="bridge.js"></script> -->
     <!-- <script src="../bridge.js"> -->
     </script>
-
+    <script>
+        addEventListener('load', () => localStorage.clear());
+    </script>
 </head>
 
 <body>
@@ -21,8 +23,7 @@
         </p>
         <canvas id="game-layer"></canvas>
     </section>
-    <script type="module" src="../bridge.js">
-    </script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
     <script type="module" src="game.js"></script>
 </body>
 

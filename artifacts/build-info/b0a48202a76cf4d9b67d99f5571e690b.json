@@ -1,0 +1,418 @@
+{
+  "id": "b0a48202a76cf4d9b67d99f5571e690b",
+  "_format": "hh-sol-build-info-1",
+  "solcVersion": "0.7.3",
+  "solcLongVersion": "0.7.3+commit.9bfce1f6",
+  "input": {
+    "language": "Solidity",
+    "sources": {
+      "contracts/HighScoreRecorder.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity >=0.5.0 <0.9.0;\n\ncontract HighScoreRecorder {\n  // address player;\n  uint public record;\n\n  // function setCurrentPlayer(address _player) public {\n  //   player = _player;\n  // }\n\n  // function getCurrentPlayer() external view returns  (address) {\n  //     return player;\n  // }\n\n  function setNewRecord(uint _record) public {\n    if (record < _record) {\n      record = _record;\n    } \n  }\n\n  function getNewRecord() external view returns (uint) {\n      return record;\n  }\n}"
+      }
+    },
+    "settings": {
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata"
+          ],
+          "": [
+            "ast"
+          ]
+        }
+      }
+    }
+  },
+  "output": {
+    "contracts": {
+      "contracts/HighScoreRecorder.sol": {
+        "HighScoreRecorder": {
+          "abi": [
+            {
+              "inputs": [],
+              "name": "getNewRecord",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "record",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "_record",
+                  "type": "uint256"
+                }
+              ],
+              "name": "setNewRecord",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            }
+          ],
+          "evm": {
+            "bytecode": {
+              "generatedSources": [],
+              "linkReferences": {},
+              "object": "608060405234801561001057600080fd5b5060cf8061001f6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c8063266cf109146041578063539c5afd14605957806384ccfcca14605f575b600080fd5b6047607b565b60408051918252519081900360200190f35b60476081565b607960048036036020811015607357600080fd5b50356087565b005b60005481565b60005490565b80600054101560965760008190555b5056fea2646970667358221220ddd1846af911dcc803f0d6316aacf478b5211501a1f0136b271b7dd68478db4964736f6c63430007030033",
+              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0xCF DUP1 PUSH2 0x1F PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH1 0x3C JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x266CF109 EQ PUSH1 0x41 JUMPI DUP1 PUSH4 0x539C5AFD EQ PUSH1 0x59 JUMPI DUP1 PUSH4 0x84CCFCCA EQ PUSH1 0x5F JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x47 PUSH1 0x7B JUMP JUMPDEST PUSH1 0x40 DUP1 MLOAD SWAP2 DUP3 MSTORE MLOAD SWAP1 DUP2 SWAP1 SUB PUSH1 0x20 ADD SWAP1 RETURN JUMPDEST PUSH1 0x47 PUSH1 0x81 JUMP JUMPDEST PUSH1 0x79 PUSH1 0x4 DUP1 CALLDATASIZE SUB PUSH1 0x20 DUP2 LT ISZERO PUSH1 0x73 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP CALLDATALOAD PUSH1 0x87 JUMP JUMPDEST STOP JUMPDEST PUSH1 0x0 SLOAD DUP2 JUMP JUMPDEST PUSH1 0x0 SLOAD SWAP1 JUMP JUMPDEST DUP1 PUSH1 0x0 SLOAD LT ISZERO PUSH1 0x96 JUMPI PUSH1 0x0 DUP2 SWAP1 SSTORE JUMPDEST POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xDD 0xD1 DUP5 PUSH11 0xF911DCC803F0D6316AACF4 PUSH25 0xB5211501A1F0136B271B7DD68478DB4964736F6C6343000703 STOP CALLER ",
+              "sourceMap": "65:457:0:-:0;;;;;;;;;;;;;;;;;;;"
+            },
+            "deployedBytecode": {
+              "generatedSources": [],
+              "immutableReferences": {},
+              "linkReferences": {},
+              "object": "6080604052348015600f57600080fd5b5060043610603c5760003560e01c8063266cf109146041578063539c5afd14605957806384ccfcca14605f575b600080fd5b6047607b565b60408051918252519081900360200190f35b60476081565b607960048036036020811015607357600080fd5b50356087565b005b60005481565b60005490565b80600054101560965760008190555b5056fea2646970667358221220ddd1846af911dcc803f0d6316aacf478b5211501a1f0136b271b7dd68478db4964736f6c63430007030033",
+              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH1 0x3C JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x266CF109 EQ PUSH1 0x41 JUMPI DUP1 PUSH4 0x539C5AFD EQ PUSH1 0x59 JUMPI DUP1 PUSH4 0x84CCFCCA EQ PUSH1 0x5F JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x47 PUSH1 0x7B JUMP JUMPDEST PUSH1 0x40 DUP1 MLOAD SWAP2 DUP3 MSTORE MLOAD SWAP1 DUP2 SWAP1 SUB PUSH1 0x20 ADD SWAP1 RETURN JUMPDEST PUSH1 0x47 PUSH1 0x81 JUMP JUMPDEST PUSH1 0x79 PUSH1 0x4 DUP1 CALLDATASIZE SUB PUSH1 0x20 DUP2 LT ISZERO PUSH1 0x73 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP CALLDATALOAD PUSH1 0x87 JUMP JUMPDEST STOP JUMPDEST PUSH1 0x0 SLOAD DUP2 JUMP JUMPDEST PUSH1 0x0 SLOAD SWAP1 JUMP JUMPDEST DUP1 PUSH1 0x0 SLOAD LT ISZERO PUSH1 0x96 JUMPI PUSH1 0x0 DUP2 SWAP1 SSTORE JUMPDEST POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xDD 0xD1 DUP5 PUSH11 0xF911DCC803F0D6316AACF4 PUSH25 0xB5211501A1F0136B271B7DD68478DB4964736F6C6343000703 STOP CALLER ",
+              "sourceMap": "65:457:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;117:18;;;:::i;:::-;;;;;;;;;;;;;;;;441:79;;;:::i;330:107::-;;;;;;;;;;;;;;;;-1:-1:-1;330:107:0;;:::i;:::-;;117:18;;;;:::o;441:79::-;488:4;509:6;441:79;:::o;330:107::-;392:7;383:6;;:16;379:53;;;409:6;:16;;;379:53;330:107;:::o"
+            },
+            "methodIdentifiers": {
+              "getNewRecord()": "539c5afd",
+              "record()": "266cf109",
+              "setNewRecord(uint256)": "84ccfcca"
+            }
+          },
+          "metadata": "{\"compiler\":{\"version\":\"0.7.3+commit.9bfce1f6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getNewRecord\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"record\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_record\",\"type\":\"uint256\"}],\"name\":\"setNewRecord\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/HighScoreRecorder.sol\":\"HighScoreRecorder\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/HighScoreRecorder.sol\":{\"keccak256\":\"0x795bbac39d9437bce8c3549e25b5450db5147866aeda66e400a41990f1b708ff\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d99ae973e9ac19bc172360fd3d9007056b86b66d822594b40e8dab9716d3b66d\",\"dweb:/ipfs/QmUL8EZ38abLGuohQpdA3dd4spjDamQp7w6sDT7NPxqccW\"]}},\"version\":1}"
+        }
+      }
+    },
+    "sources": {
+      "contracts/HighScoreRecorder.sol": {
+        "ast": {
+          "absolutePath": "contracts/HighScoreRecorder.sol",
+          "exportedSymbols": {
+            "HighScoreRecorder": [
+              27
+            ]
+          },
+          "id": 28,
+          "license": "MIT",
+          "nodeType": "SourceUnit",
+          "nodes": [
+            {
+              "id": 1,
+              "literals": [
+                "solidity",
+                ">=",
+                "0.5",
+                ".0",
+                "<",
+                "0.9",
+                ".0"
+              ],
+              "nodeType": "PragmaDirective",
+              "src": "32:31:0"
+            },
+            {
+              "abstract": false,
+              "baseContracts": [],
+              "contractDependencies": [],
+              "contractKind": "contract",
+              "fullyImplemented": true,
+              "id": 27,
+              "linearizedBaseContracts": [
+                27
+              ],
+              "name": "HighScoreRecorder",
+              "nodeType": "ContractDefinition",
+              "nodes": [
+                {
+                  "constant": false,
+                  "functionSelector": "266cf109",
+                  "id": 3,
+                  "mutability": "mutable",
+                  "name": "record",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 27,
+                  "src": "117:18:0",
+                  "stateVariable": true,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "117:4:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "public"
+                },
+                {
+                  "body": {
+                    "id": 17,
+                    "nodeType": "Block",
+                    "src": "373:64:0",
+                    "statements": [
+                      {
+                        "condition": {
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "id": 10,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "id": 8,
+                            "name": "record",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3,
+                            "src": "383:6:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "<",
+                          "rightExpression": {
+                            "id": 9,
+                            "name": "_record",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 5,
+                            "src": "392:7:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "src": "383:16:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "id": 16,
+                        "nodeType": "IfStatement",
+                        "src": "379:53:0",
+                        "trueBody": {
+                          "id": 15,
+                          "nodeType": "Block",
+                          "src": "401:31:0",
+                          "statements": [
+                            {
+                              "expression": {
+                                "id": 13,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "leftHandSide": {
+                                  "id": 11,
+                                  "name": "record",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 3,
+                                  "src": "409:6:0",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                },
+                                "nodeType": "Assignment",
+                                "operator": "=",
+                                "rightHandSide": {
+                                  "id": 12,
+                                  "name": "_record",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 5,
+                                  "src": "418:7:0",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                },
+                                "src": "409:16:0",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              },
+                              "id": 14,
+                              "nodeType": "ExpressionStatement",
+                              "src": "409:16:0"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "functionSelector": "84ccfcca",
+                  "id": 18,
+                  "implemented": true,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "setNewRecord",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 6,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 5,
+                        "mutability": "mutable",
+                        "name": "_record",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 18,
+                        "src": "352:12:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 4,
+                          "name": "uint",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "352:4:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "351:14:0"
+                  },
+                  "returnParameters": {
+                    "id": 7,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "373:0:0"
+                  },
+                  "scope": 27,
+                  "src": "330:107:0",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "public"
+                },
+                {
+                  "body": {
+                    "id": 25,
+                    "nodeType": "Block",
+                    "src": "494:26:0",
+                    "statements": [
+                      {
+                        "expression": {
+                          "id": 23,
+                          "name": "record",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3,
+                          "src": "509:6:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "functionReturnParameters": 22,
+                        "id": 24,
+                        "nodeType": "Return",
+                        "src": "502:13:0"
+                      }
+                    ]
+                  },
+                  "functionSelector": "539c5afd",
+                  "id": 26,
+                  "implemented": true,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "getNewRecord",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 19,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "462:2:0"
+                  },
+                  "returnParameters": {
+                    "id": 22,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 21,
+                        "mutability": "mutable",
+                        "name": "",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 26,
+                        "src": "488:4:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 20,
+                          "name": "uint",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "488:4:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "487:6:0"
+                  },
+                  "scope": 27,
+                  "src": "441:79:0",
+                  "stateMutability": "view",
+                  "virtual": false,
+                  "visibility": "external"
+                }
+              ],
+              "scope": 28,
+              "src": "65:457:0"
+            }
+          ],
+          "src": "32:490:0"
+        },
+        "id": 0
+      }
+    }
+  }
+}

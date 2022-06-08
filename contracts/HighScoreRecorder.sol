@@ -14,7 +14,9 @@ contract HighScoreRecorder {
   // }
 
   function setNewRecord(uint _record) public {
-    record = _record;
+    if (record < _record) {
+      record = _record;
+    } 
   }
 
   function getNewRecord() external view returns (uint) {

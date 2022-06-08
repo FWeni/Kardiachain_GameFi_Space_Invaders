@@ -85,6 +85,38 @@ section {
     color: #0e7229;
 }
 
+#current-score {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
+    padding: 20px;
+    position: fixed;
+    top: 70%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -100px;
+    height: 150px;
+    width: 200px;
+    text-align: center;
+}
+
+#current-score a {
+    border: 3px solid #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    display: block;
+    width: 200px;
+    font-size: 1em;
+    display: inline-block;
+}
+
+#current-score a:hover {
+    background-color: #0dd843;
+    color: #0e7229;
+}
+
 #page-skins {
     border: 1px solid black;
     height: 100vh;
@@ -128,11 +160,41 @@ div.readable {
     color: #b37c24;
 }
 
+#nav-butt {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
+    padding: 5px;
+    position: fixed;
+    top: 60%;
+    left: 47.5%;
+    height: 5px;
+    width: 7px;
+    text-align: center;
+}
+
+#nav-butt a {
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 3px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    width: 50px;
+    font-size: 1em;
+    display: inline-block;
+}
+
+#nav-butt a:hover {
+    background-color: #eab542;
+    color: #b37c24;
+}
+
 div.invader {
     border: 1px solid transparent;
     position: relative;
-    bottom: -15%;
-    left: 1%;
+    bottom: -25%;
+    left: %;
     margin: 0%;
 }
 
@@ -228,8 +290,8 @@ div.invader {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
+}
+
 #button {
     font-size: 2em;
 }
@@ -249,3 +311,21 @@ div.invader {
     height: 30px;
 }
 
+.container {
+    height: 200px;
+    position: relative;
+    border: 3px transparent;
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: rgb(252, 171, 48);
+    text-align: center;
+}

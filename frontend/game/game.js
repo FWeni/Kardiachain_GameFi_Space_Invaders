@@ -1,3 +1,5 @@
+// const { ethers } = require("hardhat");
+
 var scoreElement = document.getElementById('scoreElement');
 var canvas = document.getElementById('game-layer');
 var context = canvas.getContext('2d');
@@ -342,14 +344,26 @@ function animate() {
                     invaderProjectiles.splice(index, 1)
                     player.opacity = 0
                     game.over = true
-
                     redirectToHome('main.html')
                 }, 0)
                 setTimeout(() => {
                     game.active = false
                 }, 2000)
                 console.log('you lose')
-                // window.ethereum.enable();
+                    // saveRecord('Saving score', 'main.html')
+
+                // newScore.key = score
+
+                var lsScore = localStorage.getItem("score");
+                const _newRecord = parseInt(document.getElementById('scoreElement').innerText);
+                !lsScore && localStorage.setItem("score", _newRecord);
+                // window.ethereum.request({
+                //     "method ": "tx_getTransactionReceipt ",
+                //     "params": [
+                //         "0xf5ade9d9d30f5da689443524175b2c4285ad8bd8e93c9b0c1161bb21b314e101",
+                //         // "0xbEd97598CfCD53D6B3A144A7c5BdFc2012f8e0C2"
+                //     ],
+                // });
                 createParticles({
                     object: player,
                     color: 'orange',
@@ -469,16 +483,18 @@ const showConfirmation = (msg, redirect) => {
 }
 
 const redirectToHome = (home) => {
+    record_setter();
     document.getElementById('modal').style.display = 'block';
-    var container =  '<script type="module" src="../bridge.js"></script>'
-    container +="<div style='position:absolute; width:300px; left:50%; top:50%; background:transparent ; color:#66FF00; font-size: 20px; font-weight: bolder;'>";
-    container += `<div><p>Game Over</p></div>`
-    container += `<div><a  class="purple-btn"  onclick="updateNewHighScore()" href="${home}">Home</a></div>`;
-    // container += `<button id="button"  onclick="updateNewHighScore()">Save Score</button>`
+    var container = "<div style='position:absolute; width:300px; left:50%; top:50%; background:transparent ; color:#66FF00; font-size: 20px; font-weight: bolder;'>";
+    container += `<div> <p> Game Over </p></div > `
+    container += `<div> <a class = "purple-btn" href = "${home}"> Home </a></div> `;
+    // container += `<button id = "button" onclick=""> Save Score </button>`
     container += `</div>`;
+    container += `<script type = "module" src = "bridge.js" > < /script>`
+    container += `<script src = "https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type = "application/javascript" > < /script>`
+
     document.getElementById('modal').innerHTML = container;
 }
-
 
 animate();
 
@@ -527,6 +543,91 @@ addEventListener('keyup', ({ key }) => {
         case 'Escape':
             keys.escape.pressed = false
     }
+
 })
 
-// export { score };
+var savedRecord = document.getElementById('held-record');
+//Contract address
+const contractAddress = "0xbEd97598CfCD53D6B3A144A7c5BdFc2012f8e0C2";
+
+// Contract abi
+const contractABI = {
+    "_format": "hh-sol-artifact-1",
+    "contractName": "HighScoreRecorder",
+    "sourceName": "contracts/HighScoreRecorder.sol",
+    "abi": [{
+            "inputs": [],
+            "name": "getNewRecord",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "record",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [{
+                "internalType": "uint256",
+                "name": "_record",
+                "type": "uint256"
+            }],
+            "name": "setNewRecord",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }
+    ],
+    "bytecode": "0x608060405234801561001057600080fd5b5060c28061001f6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c8063266cf109146041578063539c5afd14605957806384ccfcca14605f575b600080fd5b6047607b565b60408051918252519081900360200190f35b60476081565b607960048036036020811015607357600080fd5b50356087565b005b60005481565b60005490565b60005556fea2646970667358221220b95b6bfd9f1dd200f1ac985b48fbff536310f3c718ea5dfc7fd02c0612568f7364736f6c63430007030033",
+    "deployedBytecode": "0x6080604052348015600f57600080fd5b5060043610603c5760003560e01c8063266cf109146041578063539c5afd14605957806384ccfcca14605f575b600080fd5b6047607b565b60408051918252519081900360200190f35b60476081565b607960048036036020811015607357600080fd5b50356087565b005b60005481565b60005490565b60005556fea2646970667358221220b95b6bfd9f1dd200f1ac985b48fbff536310f3c718ea5dfc7fd02c0612568f7364736f6c63430007030033",
+    "linkReferences": {},
+    "deployedLinkReferences": {}
+}
+
+const provider = new ethers.providers.JsonRpcProvider('https://dev.kardiachain.io/');
+
+function record_getter() {
+    // const contractAddress = '0x2Bc7A39c22403dA3617b237D42BF0db2C5dcaBA1'
+    const signer = provider.getSigner(contractAddress);
+    const connectedContract = new ethers.Contract(contractAddress, contractABI.abi, signer);
+    const txn = connectedContract.getNewRecord()
+    savedRecord.innerHTML = txn
+    console.log(txn)
+    txn.then(function(result) {
+        alert(result)
+    })
+}
+
+const record_setter = async() => {
+    var lsScore = localStorage.getItem("score");
+    const _newRecord = parseInt(lsScore || 0);
+    const signer = provider.getSigner(contractAddress);
+
+    // const contractAddress = '0xbEd97598CfCD53D6B3A144A7c5BdFc2012f8e0C2'
+    try {
+        console.log('__newScore: ', _newRecord)
+        const connectedContract = new ethers.Contract(contractAddress, contractABI.abi, signer);
+        console.log("connectedContract: ", connectedContract);
+        const txn = await connectedContract.setNewRecord(_newRecord);
+        localStorage.setItem("txn", txn);
+
+        console.log('tx: ', txn)
+            // savedRecord.innerHTML = txn
+        if (txn) alert(result);
+
+    } catch (error) {
+        console.log("record_setter_error: ", error)
+    }
+
+}
