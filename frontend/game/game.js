@@ -344,7 +344,7 @@ function animate() {
                     invaderProjectiles.splice(index, 1)
                     player.opacity = 0
                     game.over = true
-                    redirectToHome('main.html')
+                    redirectToHome('index.html')
                 }, 0)
                 setTimeout(() => {
                     game.active = false
@@ -523,7 +523,7 @@ addEventListener('keydown', ({ key }) => {
         case 'Escape':
             keys.escape.pressed = true
             game.active = false
-            showConfirmation('Would you like to quit the game?', 'main.html');
+            showConfirmation('Would you like to quit the game?', 'index.html');
             break
     }
 })
